@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class HumanManMilkRunner {
+	public static void main(String[] args) {
+		HumanMan bosh = new HumanMan();
+		Scanner milk_man = new Scanner(System.in);
+		
+		System.out.println("Human have " + bosh.getBones() + " bone");
+		System.out.print("How many milk: ");
+		int milk = milk_man.nextInt();
+		
+		if (milk == 0) {
+			bosh.setBones(0);
+		}
+		
+		for (int i = 0; i < milk; i++) {
+			bosh.acquireMilk((int)(Math.random() * 100) + 1);
+		}
+		System.out.println(bosh.getMilk());
+		while (bosh.getNumberOfMilk() != 0) {
+			bosh.drinkMilk();
+			System.out.println(bosh.getMilk());
+		}
+		System.out.print("Human now have " + bosh.getBones() + " bone");
+		
+		milk_man.close();
+	}
+}
