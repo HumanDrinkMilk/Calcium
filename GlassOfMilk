@@ -1,0 +1,15 @@
+public class GlassOfMilk {
+	private int sipps;
+	
+	public GlassOfMilk(int s) {
+		sipps = s;
+	}
+	
+	public void sipp() {
+		if (sipps != 0) sipps--;
+	}
+	
+	public int getSipps() {
+		return sipps;
+	}
+}
