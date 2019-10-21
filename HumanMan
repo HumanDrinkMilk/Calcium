@@ -1,0 +1,96 @@
+import java.util.ArrayList;
+
+public class HumanMan {
+	private int bones;
+	private ArrayList<GlassOfMilk> howmp = new ArrayList<GlassOfMilk>();
+	private ArrayList<Integer> homp = new ArrayList<Integer>();
+	private ArrayList<String> whomp = new ArrayList<String>();
+	private boolean lactoes_intoreanrt;
+	
+	public HumanMan() {
+		bones = 206;
+		lactoes_intoreanrt = false;
+	}
+	
+	public HumanMan(int bonequantity) {
+		bones = bonequantity;
+		lactoes_intoreanrt = false;
+	}
+	
+	public HumanMan(int bonequantity, boolean lact) {
+		bones = bonequantity;
+		lactoes_intoreanrt = lact;
+	}
+	
+	public void acquireMilk() {
+		homp.add(5);
+		GlassOfMilk milk = new GlassOfMilk(5);
+		howmp.add(milk);
+	}
+	
+	public void acquireMilk(int sipps) {
+		homp.add(sipps);
+		GlassOfMilk milk = new GlassOfMilk(sipps);
+		howmp.add(milk);
+	}
+	
+	public int getNumberOfMilk() {
+		return howmp.size();
+	}
+	
+	public int getBones() {
+		return bones;
+	}
+	
+	public void setBones(int b) {
+		bones = b;
+	}
+	
+	public ArrayList<String> getMilk()
+	{
+		whomp.clear();
+		for (int i = 0; i < homp.size(); i++) {
+			whomp.add(homp.get(i) + " sipps");
+		}
+		if (whomp.size() == 0) {
+			whomp.clear();
+			whomp.add("no sipp");
+		}
+		return whomp;
+	}
+	
+	public void drinkMilk() {
+		if (howmp.size() > 0 && howmp.get(0).getSipps() > 0) {
+			howmp.get(0).sipp();
+			homp.set(0, homp.get(0) - 1);
+			if (!lactoes_intoreanrt) {
+				bones++;
+			}
+			else {
+				bones--;
+			}
+		}
+		if (howmp.get(0).getSipps() <= 0) {
+			howmp.remove(0);
+			homp.remove(0);
+		}
+	}
+	
+	public void drinkMilk(int quantityquantity) {
+		if (howmp.size() > 0 && howmp.get(0).getSipps() > 0) {
+			for (int i = 0; i < quantityquantity; i++) {
+				howmp.get(0).sipp();
+				if (!lactoes_intoreanrt) {
+					bones++;
+				}
+				else {
+					bones--;
+				}
+			}
+			
+		}
+		if (howmp.get(0).getSipps() <= 0) {
+			howmp.remove(0);
+		}
+	}
+}
